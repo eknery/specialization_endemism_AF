@@ -9,7 +9,7 @@ c) Tests differences of environmental heterogeneity based on permutation procedu
 2) hypervolume_inference, which:
 a) Sets a function to validate hypervolume models based on k-fold and leave-one-out procedures;
 b) Infers hypervolumes and environmental niches of species based on hypervolume models;
-3) Displays plots contrasting groups of species;
+c) Displays plots contrasting species' hypervolume;
 
 3) comparative_hypervolume, which:
 a) Tests differences of hypervolume between species based on PGLS model;

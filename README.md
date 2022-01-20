@@ -2,8 +2,8 @@
 The project encompass three R-scripts:
 
 1) environ_heterogeneity, which: 
-a) Quantifies how many georeferrenced points are inside a given geographic shape file;
-b) Extracts environmental values from rasters based on georeferrenced points;
+a) Quantifies georeferrenced points inside a given geographic shape file;
+b) Quantifies environmental heterogeneity based on georeferrenced points projected onto raster layers;
 c) Tests differences of environmental heterogeneity based on permutation procedure and PGLS model;
 
 2) hypervolume_inference, which:

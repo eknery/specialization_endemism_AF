@@ -1,5 +1,5 @@
 # specialization_endemism_AF
-The project encompass three R-scripts:
+The project encompass three R-programms and their respective data:
 
 1) environ_heterogeneity, which: 
 a) Quantifies georeferrenced points inside a given geographic shape file;
@@ -13,6 +13,6 @@ c) Displays plots contrasting species' hypervolume;
 
 3) comparative_hypervolume, which:
 a) Tests differences of hypervolume between species based on PGLS model;
-b) Quantifies phylogenetic signal of species' hypervolume;
+b) Quantifies phylogenetic signal of species' hypervolume across multiple phylogenetic trees;
 c) Sets functions to fit multiple evolutionary models and to choose the best-fit model based on AICc;
-d) Infers the best-fit evolutionary model of species'hypervolume based on multiple phylogenetic trees;
+d) Infers the best-fit evolutionary model of species' hypervolume based on multiple phylogenetic trees;

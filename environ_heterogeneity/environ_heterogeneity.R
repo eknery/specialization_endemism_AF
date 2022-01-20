@@ -42,8 +42,8 @@ bg_intersect = st_intersects(bg_sf,shape_AF)
 inside = lengths(bg_intersect) == 1
 outside = lengths(bg_intersect) == 0
 
-inside_AF=bg_points[inside,2:3]
-outside_AF=bg_points[outside,2:3]
+inside_AF=bg_points[inside,]
+outside_AF=bg_points[outside,]
 
 ######################## extracting environmental background ###################
 

@@ -7,13 +7,16 @@ library(phytools)
 library(nlme)
 
 
-### loading files
-
+# loading mcc phylogeny
 mcc=read.tree("mcc_phylo.nwk")
 
-spp_points=read.table("spp_points.csv", header =T, sep=",")
-bg_points=read.table("background_points.csv", header =T, sep=",")
+# loading background sites
+bg_points=read.table("bg_points.csv", header =T, sep=",")
 
+#loading species occurrences
+spp_points=read.table("spp_points.csv", header =T, sep=",")
+
+# loading raster layers
 ras1=raster("temp_diurnal_range")
 ras2=raster("precip_seasonality")
 ras3=raster("soil_pH")
@@ -21,12 +24,13 @@ ras4=raster("solar_radiation")
 
 allras=stack(ras1,ras2,ras3,ras4)
 
-shape_AF=st_read("C:/Users/eduar/Desktop/rasters Neotrópicos/AF_shape")
+#loading AF-shape boundaries
+shape_AF=st_read("AF_shape")
 
 ######################### classifying sites into AF ################
 
 # checking sample per cell
-cell_count=rasterize(bg_points[,2:3], ras1, fun="count")
+cell_count=rasterize(bg_points, ras1, fun="count")
 sampled_cells=which(cell_count@data@values==1)
 
 # sampling per geographic domain
@@ -118,7 +122,7 @@ rao=paRao(ras_list, dist_m="euclidean", window=3, rasterOut = T,
 rao_ras=rao$window.3$alpha.1
 
 ######################### assessing Q from bg sites #############################
-bg_qvals=extract(rao_ras,bg_points[,2:3])
+bg_qvals=extract(rao_ras,bg_points)
 bg_rao=data.frame(bg_points$region,bg_qvals)
 colnames(bg_rao)=c("region","rao")
 

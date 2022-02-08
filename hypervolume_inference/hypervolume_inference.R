@@ -34,7 +34,7 @@ hypervolume_tss= function(data, bg, leave_one=FALSE, k, iterations, threshold){
       train = data[folds != i,]
       ### estimating species bandwidth and training hypervolume
       data_band=estimate_bandwidth(train,method="silverman")
-      data_hv=hypervolume_box(train, samples.per.point = 1000, kde.bandwidth = sp_band, tree.chunksize = 10000)
+      data_hv=hypervolume_box(train, samples.per.point = 1000, kde.bandwidth = data_band, tree.chunksize = 10000)
       ### predicting true presences
       data_test=hypervolume_inclusion_test(data_hv, test, reduction.factor = 1, fast.or.accurate ="accurate", accurate.method.threshold=threshold)
       a=sum(data_test, na.rm = TRUE)
@@ -63,7 +63,7 @@ hypervolume_tss= function(data, bg, leave_one=FALSE, k, iterations, threshold){
       train = data[folds != 1,]
       ### estimating species bandwidth and training hypervolume
       data_band=estimate_bandwidth(train,method="silverman")
-      data_hv=hypervolume_box(train, samples.per.point = 1000, kde.bandwidth = sp_band, tree.chunksize = 10000)
+      data_hv=hypervolume_box(train, samples.per.point = 1000, kde.bandwidth = data_band, tree.chunksize = 10000)
       ### predicting true presences
       data_test=hypervolume_inclusion_test(data_hv, test, reduction.factor = 1, fast.or.accurate ="accurate", accurate.method.threshold=threshold)
       a=sum(data_test, na.rm = TRUE)

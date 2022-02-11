@@ -1,5 +1,5 @@
 library(hypervolume)
-
+library(dismo)
 
 # loading environmental background. 
 bg_env= read.table("environmental_background.csv", header =T, sep=",")

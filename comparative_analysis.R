@@ -202,8 +202,6 @@ colnames(all_best_models) = c(c("model","llik","aicc","delta_aicc"))
 all_best_estimates = vector("list" , n_trees)
 all_models = c("BM1","BMS","OU1","OUM","OUMV","OUMA","OUMVA")
 
-
-
 for (i in 1:n_trees){ 
   # phylogenetic tree
   tr_fn = paste("0_data/100_trees/tree", as.character(i), sep="_")

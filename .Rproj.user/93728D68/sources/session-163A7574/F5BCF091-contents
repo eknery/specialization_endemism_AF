@@ -1,0 +1,200 @@
+##################### sampling effort #####################
+	   n_species
+1       AF 23
+2 AFothers 18
+3   others 25
+
+	   n_points
+1      AF  954
+2 AFother 3264
+3   other 1348
+
+           mean_n_points
+1      AF  41.47826
+2 AFother 181.33333
+3   other  53.92000
+
+  	   sd_n_points
+1      AF  63.04174
+2 AFother 276.98800
+3   other  46.81339
+
+################### Q values ###################
+
+  	  median_q_value
+1      AF 100.39553
+2 AFother  73.29937
+3   other  58.06556
+
+### iqr_q_values ~ geographi distribution
+1      AF 106.92859
+2 AFother  11.76539
+3   other  37.78685
+
+Coefficients:
+                  Value  Std.Error    t-value p-value
+(Intercept)  -1.8534038 0.07330566 -25.283230  0.0000
+stateAFother -0.2327201 0.07662253  -3.037228  0.0035
+stateother   -0.4270792 0.06880592  -6.207012  0.0000
+
+### log(median_q_values) ~ km_altitude
+
+Coefficients:
+                  Value  Std.Error   t-value p-value
+(Intercept) -2.398452 0.07530121 -31.85144       0
+km_altitude  0.536290 0.07575332   7.07943       0
+
+R2 = 0.3687263
+
+################## hypervolumes #################
+
+	   median_hv
+1       AF 1.980144
+2 AFothers 4.218837
+3   others 2.607155
+
+### morran
+	  median
+ Group.1         x
+1      AF 0.2915212
+2 AFother 0.2818775
+3   other 0.5563147
+
+Group.1         x
+1      AF 0.1515776
+2 AFother 0.2096132
+3   other 0.3467494
+
+Coefficients:
+                 Value Std.Error  t-value p-value
+(Intercept)  1.0077528 0.2533974 3.976966  0.0002
+stateAFother 0.8463474 0.2846761 2.973019  0.0042
+stateother   0.5836391 0.2866503 2.036067  0.0460
+moran        0.4693401 0.5305132 0.884691  0.3797
+
+
+### temperature range NO transformation
+Coefficients:
+                 Value Std.Error  t-value p-value
+(Intercept)  15.412740  1.770903 8.703325  0.0000
+stateAFother  3.651782  2.672701 1.366327  0.1767
+stateother    0.697024  2.453835 0.284055  0.7773
+
+### precipitation
+Coefficients:
+                 Value Std.Error   t-value p-value
+(Intercept)  17.675576  2.002738  8.825704  0.0000
+stateAFother  3.320346  3.022613  1.098502  0.2762
+stateother   -0.788823  2.775308 -0.284229  0.7772
+
+### solar radiation
+
+	    median
+1      AF  869.9609
+2 AFother 1200.9453
+3   other 1201.3678
+
+Coefficients:
+                Value Std.Error  t-value p-value
+(Intercept)  790.0898  122.0757 6.472128  0.0000
+stateAFother 534.0556  184.2700 2.898223  0.0052
+stateother   472.2413  169.1450 2.791932  0.0069
+
+### soil ph
+  	   median
+1      AF 3.151949
+2 AFother 4.384042
+3   other 5.951378
+Coefficients:
+                Value Std.Error  t-value p-value
+(Intercept)  3.218127 0.4463904 7.209222  0.0000
+stateAFother 1.469374 0.6662833 2.205329  0.0311
+stateother   2.508650 0.6047806 4.148033  0.0001
+		
+
+######################## range size ######################
+###range size
+	    median
+1      AF  12.56805
+2 AFother 169.31379
+3   other 223.50669
+
+             iqr
+1      AF  15.92973
+2 AFother 574.93837
+3   other 324.86422
+
+#####################
+
+AICc = AIC + 2K(K+1)/(n−K−1)
+
+### cubic range size ~ hvolume 
+AIC       AICc
+308.6419  308.8324
+
+CCoefficients:
+                Value Std.Error  t-value p-value
+(Intercept) 2.7522638 0.4061497 6.776476       0
+hvolume     0.4996889 0.0790487 6.321278       0
+
+R = 0.385
+
+### cubic range size ~ state/hvolume + moran
+AIC      AICc   
+292.3749 294.0246
+
+Coefficients:
+                        Value Std.Error  t-value p-value
+(Intercept)          0.672154 0.6510968 1.032342  0.3061
+stateAFother         3.485769 1.0363168 3.363613  0.0013
+stateother           3.501537 0.8457595 4.140110  0.0001
+stateAF:hvolume      0.733839 0.2722164 2.695792  0.0091
+stateAFother:hvolume 0.440802 0.1419025 3.106376  0.0029
+stateother:hvolume   0.312107 0.0845132 3.692994  0.0005
+
+R2 = 0.577
+
+################## evolutionary regimes ################
+
+### hvolumes: 100% oumv
+
+hv means
+Group.1        x
+1      AF 1.841405  p < 0.001
+2 AFother 4.649896  p = 0.035
+3   other 4.554338  p = 0.029
+
+# mean estimates
+Group.1    theta        se    alpha  sigma_sq
+1      AF 1.870273 0.3255757 5.876505  27.04633
+2 AFother 4.464310 0.8148675 5.876505 127.00209
+3   other 4.655939 0.9282400 5.876505 241.34894
+
+# sd estimates
+Group.1      theta          se    alpha  sigma_sq
+1      AF 0.03385071 0.009003638 3.492148  15.87963
+2 AFother 0.10899569 0.039060606 3.492148  73.35631
+3   other 0.08478591 0.019567666 3.492148 148.79714
+
+### range: 74% oumv
+
+range mean
+Group.1         x
+1      AF  21.58582  p < 0.001
+2 AFother 401.89207  p = 0.036
+3   other 282.53703  p = 0.004
+ 
+# mean estimates
+Group.1     theta         se    alpha    sigma_sq
+1      AF  19.41816   9.397738 4.891047    9738.875
+2 AFother 369.24594 104.451968 4.942299 1795110.226
+3   other 283.37095  61.057004 4.803717  632478.601
+
+# sd estimates
+Group.1      theta         se    alpha   sigma_sq
+1      AF   7.321712   8.666266 6.115793   12152.46
+2 AFother 358.972909 102.951544 6.082386 2479719.16
+3   other  11.914118  18.728718 6.177331  820583.62
+
+######################### ancestral reconstructions ################
+

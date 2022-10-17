@@ -1,15 +1,11 @@
 choose_best = function (fit_results){
-  if (min(fit_results$fit_metrics$aicc) < 0){
-    # exclude erroneous model
-    fit_results$fit_metrics = fit_results$fit_metrics[-which(fit_results$fit_metrics$aicc < 0),]
-  }
   # calculate delta_aicc 
-  delta_aicc = as.numeric(fit_results$fit_metrics$aicc) - as.numeric(min(fit_results$fit_metrics$aicc))
+  delta_aicc = as.numeric(fit_results$fit_metrics$aicc) - min(as.numeric(fit_results$fit_metrics$aicc))
   fit_results$fit_metrics = data.frame(fit_results$fit_metrics, delta_aicc)
   # find first and second lowest delta aicc
-  first_delta = fit_results$fit_metrics[fit_results$fit_metrics$delta_aicc == min(fit_results$fit_metrics$delta_aicc),]
-  minus_first = fit_results$fit_metrics[-which(fit_results$fit_metrics$delta_aicc == min(fit_results$fit_metrics$delta_aicc)),]
-  second_delta =  minus_first[minus_first$delta_aicc == min(minus_first$delta_aicc),]
+  first_delta = fit_results$fit_metrics[fit_results$fit_metrics$aicc == min(as.numeric(fit_results$fit_metrics$aicc)),]
+  minus_first = fit_results$fit_metrics[-which( fit_results$fit_metrics$aicc == min(as.numeric(fit_results$fit_metrics$aicc)) ),]
+  second_delta =  minus_first[minus_first$aicc == min(as.numeric(minus_first$aicc)),]
   # index to check complexity
   model_names = fit_results$fit_metrics[,1]
   first_index = which(model_names == first_delta$model)

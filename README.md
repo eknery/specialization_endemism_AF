@@ -1,13 +1,17 @@
 # specialization_endemism_AF
-The project encompass three R-programms and their respective data:
+
+### Description:
+This projects aimed to compare ecological specialization ('rarity') inside and outside the Atlantic Forest and explore their causes and consequences
+
+### Methods:
+The dataset includes georeferenced occurences (~9.000) retrieved from [splink](http://www.splink.org.br) database and raster layers from [WorldClim](https://www.worldclim.org/). Ecological estimates were based on the hypervolume algorithm and reconstruction inferences were carried out using OU-based models. 
 
 1) environ_heterogeneity, which: 
-a) Quantifies georeferrenced points inside a given geographic shape file;
 b) Quantifies environmental heterogeneity based on georeferrenced points projected onto raster layers;
 c) Tests differences of environmental heterogeneity based on permutation procedure and PGLS model;
 
 2) hypervolume_inference, which:
-a) Sets a function to validate hypervolume models based on k-fold and leave-one-out procedures;
+a) Sets a function to validate hypervolume models based on TSS under k-fold and leave-one-out procedures;
 b) Infers hypervolumes and environmental niches of species based on hypervolume models;
 c) Displays plots contrasting species' hypervolume;
 

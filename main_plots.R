@@ -1,6 +1,3 @@
-
-setwd("C:/Users/eduar/Documents/GitHub/specialization_endemism_AF")
-
 library(tidyverse)
 library(PupillometryR)
 library(ggpubr)

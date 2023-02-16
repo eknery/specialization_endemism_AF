@@ -1,3 +1,4 @@
+### require packages
 library(tidyverse)
 library(PupillometryR)
 library(ggpubr)
@@ -8,6 +9,9 @@ library(Hmisc)
 library(plyr)
 library(RColorBrewer)
 library(reshape2)
+
+# my colors
+mycols = c( "#1E88E5", "#FFC107", "#D81B60")
 
 ############################ plotting extent species data #########################
 
@@ -20,9 +24,6 @@ spp_range = read.table("4_geographic_inference/spp_range.csv", header =T, sep=",
 # organizing dataset to plot
 spp_dataset = data.frame(spp_rao, spp_altitude$altitude, spp_hvolumes$hvolume, spp_range$range)
 colnames(spp_dataset)[4:6] = c("altitude", "hvolume","range")
-
-# my colors
-mycols = c( "#1E88E5", "#FFC107", "#D81B60")
 
 tiff("6_graphs/qvalues_geographic_distribution.tiff", units="in", width=3.5, height=3, res=600)
 ggplot(data= spp_dataset, aes(x=state, y=rao, fill=state)) +
@@ -195,7 +196,7 @@ dev.off()
 ########################## plotting observed traits & model estimates ###########################
 
 ### best-estimates
-best_estimates_table = read.table("5_comparative_analysis/range_best_estimates.csv", sep=",", h=T)
+best_estimates_table = read.table("5_comparative_analysis/hv_best_estimates.csv", sep=",", h=T)
 
 # organizing best-fit estimates
 af = best_estimates_table[-46,c(1,2,7,8)]
@@ -209,7 +210,7 @@ aggregate(model_estimates[,2:5], by=list(model_estimates[,1]), mean)
 aggregate(model_estimates[,2:5], by=list(model_estimates[,1]), sd)
 
 ### BM simulations
-bm_simulations = read.table("5_comparative_analysis/range_bm_simulations.csv", sep=",", h=T)
+bm_simulations = read.table("5_comparative_analysis/hv_bm_simulations.csv", sep=",", h=T)
 
 # organizing bm simulations
 model = rep("bm1",nrow(bm_simulations))
@@ -228,23 +229,23 @@ summary_regimes=data.frame(means,sds[,2],ses)
 colnames(summary_regimes)=c("state","mean","sd","se")
 
 theta_plot= ggplot(data= model_estimates, aes(x=state, y=theta, fill=state)) +
-  geom_point(aes(color=state),position = position_jitter(width = 0.10), size = 1, alpha = 0.1) +
-  geom_boxplot(width = 0.30, outlier.shape = NA, alpha = 0.25)+
+  geom_point(aes(color=state),position = position_jitter(width = 0.20), size = 1, alpha = 0.1) +
+  geom_boxplot(width = 0.50, outlier.shape = NA, alpha = 0.25)+
   scale_fill_manual(values=mycols)+
   scale_colour_manual(values=mycols)+
   xlab("")+ ylab("theta")+
   scale_x_discrete(labels=c("AF" = "AF-endemic", "AFother" = "AF and other", "other" = "Outside AF"))+
-  ylim(c(0,750))+
+  #ylim(c(0,750))+
   theme(panel.background=element_rect(fill="white"), panel.grid=element_line(colour=NULL),panel.border=element_rect(fill=NA,colour="black"),axis.title=element_text(size=14,face="bold"),axis.text.x=element_text(size=6),legend.position = "none")
 
 sigma_plot= ggplot(data= model_estimates, aes(x=state, y=sqrt(sigma_sq), fill=state)) +
-  geom_point(aes(color=state),position = position_jitter(width = 0.10), size = 1, alpha = 0.1) +
-  geom_boxplot(width = 0.30, outlier.shape = NA, alpha = 0.25)+
+  geom_point(aes(color=state),position = position_jitter(width = 0.20), size = 1, alpha = 0.1) +
+  geom_boxplot(width = 0.50, outlier.shape = NA, alpha = 0.25)+
   scale_fill_manual(values=mycols)+
   scale_colour_manual(values=mycols)+
   xlab("geographic\ndistribution")+ ylab("sigma")+
   scale_x_discrete(labels=c("AF" = "AF-endemic", "AFother" = "AF and other", "other" = "Outside AF"))+
-  ylim(c(0,3000))+
+  #ylim(c(0,3000))+
   theme(panel.background=element_rect(fill="white"), panel.grid=element_line(colour=NULL),panel.border=element_rect(fill=NA,colour="black"),axis.title=element_text(size=14,face="bold"),axis.text.x=element_text(size=6),legend.position = "none")
 
 bm_plot= ggplot(data=bm_simulations,aes(x=trait)) +
@@ -258,8 +259,8 @@ bm_plot= ggplot(data=bm_simulations,aes(x=trait)) +
   #xlim(c(0,25))+
   theme(panel.background=element_rect(fill="white"), panel.grid=element_line(colour=NULL),panel.border=element_rect(fill=NA,colour="black"),axis.title=element_text(size=14,face="bold"),axis.text=element_text(size=8),legend.position = "none")
 
-tiff("6_graphs/evo_model_estimates_range.tiff", units="in", width=2.5, height=6, res=600)
-ggarrange(theta_plot,sigma_plot, bm_plot, nrow=3,ncol=1)
+tiff("6_graphs/evo_model_estimates_hv.tiff", units="in", width=2.5, height=6, res=600)
+  ggarrange(theta_plot,sigma_plot, bm_plot, nrow=3,ncol=1)
 dev.off()
 
 ############################# plotting ancestral species data ###########################

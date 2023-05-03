@@ -7,9 +7,9 @@ This projects aimed to compare ecological specialization ('rarity') inside and o
 The dataset includes georeferenced occurences (~9.000) retrieved from [splink](http://www.splink.org.br) database and raster layers from [WorldClim](https://www.worldclim.org/). Ecological estimates were based on the hypervolume method and evolutionary inferences were carried out using the OUwie R package.
 The analytical framework is based on three main R scripts:
 
-1) environmental_heterogeneity.R: 
-    a) Quantifies environmental heterogeneity based on georeferrenced occurrences projected onto raster layers;
-b) Tests differences of environmental heterogeneity based on a permutation procedure and a generalized least-square (GLS) model;
+1. environmental_heterogeneity.R: 
+i. Quantifies environmental heterogeneity based on georeferrenced occurrences projected onto raster layers;
+ii. Tests differences of environmental heterogeneity based on a permutation procedure and a generalized least-square (GLS) model;
 
 2) hypervolume_inference.R:
 a) Sets a function to validate hypervolume models based on TSS under k-fold and leave-one-out procedures;

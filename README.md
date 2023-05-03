@@ -8,8 +8,8 @@ The dataset includes georeferenced occurences (~9.000) retrieved from [splink](h
 The analytical framework is based on three main R scripts:
 
 1. environmental_heterogeneity.R: 
-i. Quantifies environmental heterogeneity based on georeferrenced occurrences projected onto raster layers;
-ii. Tests differences of environmental heterogeneity based on a permutation procedure and a generalized least-square (GLS) model;
+  i. Quantifies environmental heterogeneity based on georeferrenced occurrences projected onto raster layers;
+  ii. Tests differences of environmental heterogeneity based on a permutation procedure and a generalized least-square (GLS) model;
 
 2) hypervolume_inference.R:
 a) Sets a function to validate hypervolume models based on TSS under k-fold and leave-one-out procedures;

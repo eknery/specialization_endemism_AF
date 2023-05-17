@@ -1,10 +1,11 @@
 # specialization_endemism_AF
 
 ### Description:
-This projects aimed to compare ecological specialization ('rarity') inside and outside the Atlantic Forest and explore their causes
+This is the repositoty for my article [Ecological specialization underlies plant endemism](https://academic.oup.com/aob/advance-article-abstract/doi/10.1093/aob/mcad029/7033295?redirectedFrom=fulltext). This projects aimed to explore the relationship between ecological specialization and plant endemism in the Atlantic Forest. The project utilized the Miconia supersect. Discolor as a study system. 
 
 ### Methods:
-The dataset includes georeferenced occurences (~9.000) retrieved from [splink](http://www.splink.org.br) database and raster layers from [WorldClim](https://www.worldclim.org/). Ecological estimates were based on the hypervolume method and evolutionary inferences were carried out using the OUwie R package.
+The dataset includes phylogenetic trees, already-curated georeferenced occurences (~9.000), and raster layers. Estimates of ecological specialiazation were based on the hypervolume method. Evolutionary inferences were carried out using the OUwie R package.
+
 The analytical framework is based on three main R scripts:
 
 1. environmental_heterogeneity.R: 
@@ -20,5 +21,3 @@ The analytical framework is based on three main R scripts:
     1. Tests differences of hypervolume size inside and outside the Atlantic Forest based on a GLS model;
     2. Sets functions to fit multiple evolutionary models and to choose the best-fit model based on the corrected Akaike Information Criterion (AICs);
     3. Retrieve parameter estimates from the best-fit evolutionary model and compare estimates across groups;
-
-If you find any of these scripts useful, please refer to my [article](https://academic.oup.com/aob/advance-article-abstract/doi/10.1093/aob/mcad029/7033295?redirectedFrom=fulltext)

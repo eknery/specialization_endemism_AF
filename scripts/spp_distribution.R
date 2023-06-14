@@ -1,6 +1,3 @@
-### setting working directory
-setwd("C:/Users/eduar/Documents/GitHub/specialization_endemism_AF")
-
 ### loading package
 library(sf)
 library(plyr)

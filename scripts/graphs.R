@@ -19,7 +19,7 @@ mycols = c( "#1E88E5", "#FFC107", "#D81B60")
 spp_rao = read.table("2_environmental_heterogeneity/spp_rao.csv", header =T, sep=",",  na.strings = "NA", fill=T)
 spp_altitude = read.table("2_environmental_heterogeneity/spp_altitude.csv", header =T, sep=",",  na.strings = "NA", fill=T)
 spp_hvolumes = read.table("3_hypervolume_inference/spp_hvolumes.csv", header =T, sep=",",  na.strings = "NA", fill=T)
-spp_range = read.table("4_geographic_inference/spp_range.csv", header =T, sep=",",  na.strings = "NA", fill=T)
+spp_range = read.table("4_range_inference/spp_range.csv", header =T, sep=",",  na.strings = "NA", fill=T)
   
 # organizing dataset to plot
 spp_dataset = data.frame(spp_rao, spp_altitude$altitude, spp_hvolumes$hvolume, spp_range$range)
@@ -152,7 +152,7 @@ hvolumes = spp_hvolumes$hvolume
 names(hvolumes) = spp_hvolumes$species
 
 ###range data
-spp_range = read.table("4_geographic_inference/spp_range.csv", header =T, sep=",",  na.strings = "NA", fill=T)
+spp_range = read.table("4_range_inference/spp_range.csv", header =T, sep=",",  na.strings = "NA", fill=T)
 
 # normal range
 ranges = spp_range$range
@@ -218,7 +218,7 @@ bm_simulations = data.frame(model, bm_simulations)
 colnames(bm_simulations)[2] = "trait"
 
 ## observed hvolumes
-regimes = read.table("4_geographic_inference/regimes_ranges.csv", sep=",", h=T)
+regimes = read.table("4_range_inference/regimes_ranges.csv", sep=",", h=T)
 
 # summarizing hvolumes by state
 means=aggregate(regimes[,3], by=list(regimes[,2]),mean)

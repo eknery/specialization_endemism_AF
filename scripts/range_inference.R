@@ -25,19 +25,19 @@ spp_range = data.frame(all_spp_names,  spp_range)
 colnames(spp_range) = c("species","range")
 
 #exporting
-write.table(spp_range, "4_geographic_inference/spp_range.csv", sep=',', quote=F, row.names=F)
+write.table(spp_range, "4_range_inference/spp_range.csv", sep=',', quote=F, row.names=F)
 
 ### setting regimes
-spp_range = read.table("4_geographic_inference/spp_range.csv", sep=',', h=T)
+spp_range = read.table("4_range_inference/spp_range.csv", sep=',', h=T)
 regimes = data.frame(spp_geographic_distribution, spp_range$range)
 colnames(regimes)[3] = "range"
 
 # exporting
-write.table(regimes, "4_geographic_inference/regimes_ranges.csv", sep=',', quote=F, row.names=F)
+write.table(regimes, "4_range_inference/regimes_ranges.csv", sep=',', quote=F, row.names=F)
 
 ####################### describing convex hull area per distribution ##################
 ### load
-regimes_ranges = read.table("4_geographic_inference/regimes_ranges.csv", sep=',', h=T)
+regimes_ranges = read.table("4_range_inference/regimes_ranges.csv", sep=',', h=T)
 
 ### summary
 aggregate(regimes_ranges$range, by=list(regimes_ranges$state), median)

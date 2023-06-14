@@ -1,4 +1,3 @@
-
 # loading packages 
 library(raster)
 
@@ -51,4 +50,4 @@ aggregate(moran, by=list(spp_geographic_distribution$state), median)
 aggregate(moran, by=list(spp_geographic_distribution$state), IQR)
 
 # exporting
-write.table(spp_moran,"4_geographic_inference/spp_moran.csv",sep=",", quote=F,row.names=F)
+write.table(spp_moran,"4_range_inference/spp_moran.csv",sep=",", quote=F,row.names=F)

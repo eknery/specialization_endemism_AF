@@ -44,13 +44,13 @@ hvolume = regimes_hvolumes$hvolume
 names(hvolume) = regimes_hvolumes$species
 
 ### reading range data
-regimes_ranges = read.table("4_geographic_inference/regimes_ranges.csv", header =T, sep=",",  na.strings = "NA", fill=T)
+regimes_ranges = read.table("4_range_inference/regimes_ranges.csv", header =T, sep=",",  na.strings = "NA", fill=T)
 # named ranges
 range = regimes_ranges$range
 names(range) = regimes_ranges$species
 
 ### reading autocorrelation data
-spp_moran = read.table("4_geographic_inference/spp_moran.csv", header =T, sep=",",  na.strings = "NA", fill=T)
+spp_moran = read.table("4_range_inference/spp_moran.csv", header =T, sep=",",  na.strings = "NA", fill=T)
 # named autocorrelation
 moran = apply(spp_moran[,2:5], MARGIN = 1, mean)
 names(moran) = spp_moran$species

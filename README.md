@@ -17,7 +17,7 @@ The analytical framework is based on three main R scripts:
     2. Infers hypervolumes and environmental niches of species based on hypervolume models;
     3. Displays plots contrasting species' hypervolume;
 
-3. comparative_analysis.R:
+3. comparative_analyses.R:
     1. Tests differences of hypervolume size inside and outside the Atlantic Forest based on a GLS model;
     2. Sets functions to fit multiple evolutionary models and to choose the best-fit model based on the corrected Akaike Information Criterion (AICs);
     3. Retrieve parameter estimates from the best-fit evolutionary model and compare estimates across groups;

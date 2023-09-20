@@ -1,7 +1,7 @@
 # specialization_endemism_AF
 
 ### Description:
-This is the repositoty for my article [Ecological specialization underlies plant endemism](https://academic.oup.com/aob/advance-article-abstract/doi/10.1093/aob/mcad029/7033295?redirectedFrom=fulltext). This projects aimed to explore the relationship between ecological specialization and plant endemism in the Atlantic Forest. The project utilized the Miconia supersect. Discolor as a study system. 
+This is the repositoty for my article [Ecological specialization underlies plant endemism](https://academic.oup.com/aob/advance-article-abstract/doi/10.1093/aob/mcad029/7033295?redirectedFrom=fulltext). This projects aimed to test the relationship between ecological specialization and plant endemism in the Atlantic Forest. The project utilized the Miconia supersect. Discolor as a study system. 
 
 ### Methods:
 The dataset includes phylogenetic trees, already-curated georeferenced occurences (~9.000), and raster layers. Estimates of ecological specialiazation were based on the hypervolume method. Evolutionary inferences were carried out using the OUwie R package.
@@ -23,5 +23,5 @@ The analytical framework is based on three main R scripts:
 
 4. comparative_analyses.R:
     1. Tests differences of species' hypervolume and geographic range between gepgraphic groups based on GLS models;
-    2. Fits multiple models and choose the best-fit model describing the evolution of hypervolume and geopgraphic range based on the corrected Akaike Information Criterion (AICs);
+    2. Fits multiple models and choose the best-fit model describing the evolution of hypervolume and geopgraphic range based on the corrected Akaike Information Criterion (AIC);
     3. Retrieve parameter estimates from the best-fit evolutionary model and compare estimates across groups;

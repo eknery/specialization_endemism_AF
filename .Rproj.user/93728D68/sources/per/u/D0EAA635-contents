@@ -1,0 +1,4 @@
+spp_alt_values
+
+# exporting
+write.table(spp_alt_values,"spp_alt_values.csv",sep=",", quote=F, row.names=F)

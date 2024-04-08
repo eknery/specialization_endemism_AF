@@ -25,16 +25,29 @@ spp_range = read.table("4_range_inference/spp_range.csv", header =T, sep=",",  n
 spp_dataset = data.frame(spp_rao, spp_altitude$altitude, spp_hvolumes$hvolume, spp_range$range)
 colnames(spp_dataset)[4:6] = c("altitude", "hvolume","range")
 
-tiff("6_graphs/qvalues_geographic_distribution.tiff", units="in", width=3.5, height=3, res=600)
+tiff("6_graphs/qvalues_geographic_distribution.tiff", 
+     units="in", width=3.5, height=3, res=600)
 ggplot(data= spp_dataset, aes(x=state, y=rao, fill=state)) +
-  geom_point(aes(color=state),position = position_jitter(width = 0.07), size = 2, alpha = 0.65) +
-  geom_boxplot(width = 0.2, outlier.shape = NA, alpha = 0.25)+
+  geom_point(aes(color=state),
+             position = position_jitter(width = 0.07), 
+             size = 2, 
+             alpha = 0.65) +
+  geom_boxplot(width = 0.2, 
+               outlier.shape = NA,
+               alpha = 0.25)+
   geom_flat_violin(position = position_nudge(x = 0.12, y = 0), alpha = 0.25) +
   scale_fill_manual(values=mycols)+
   scale_colour_manual(values=mycols)+
   xlab("geographic distribution")+ ylab("median Q value")+
-  scale_x_discrete(labels=c("AF" = "AF-endemic", "AFother" = "AF and other\ndomains", "other" = "outside AF"))+
-  theme(panel.background=element_rect(fill="white"), panel.grid=element_line(colour=NULL),panel.border=element_rect(fill=NA,colour="black"),axis.title=element_text(size=14,face="bold"),axis.text.x=element_text(size=8),legend.position = "none")
+  scale_x_discrete(labels=c("AF" = "AF-endemic", 
+                            "AFother" = "AF and other\ndomains", 
+                            "other" = "outside AF"))+
+  theme(panel.background=element_rect(fill="white"), 
+        panel.grid=element_line(colour=NULL),
+        panel.border=element_rect(fill=NA,colour="black"),
+        axis.title=element_text(size=14,face="bold"),
+        axis.text.x=element_text(size=8),
+        legend.position = "none")
 dev.off()
 
 

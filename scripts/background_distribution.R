@@ -28,7 +28,9 @@ st_crs(bg_sf) = st_crs(neo_teow_id)
 join = st_join(bg_sf, neo_teow_id)
 
 # replacing id by domain name
-domain_names = c("out", "out", "AF", "AF", "out", "out", "out", "out", "out", "out", "out", "out") 
+domain_names = c("out", "out", "AF", "AF",
+                 "out", "out", "out", "out",
+                 "out", "out", "out", "out") 
 domains = domain_names[join$index]
 domains[is.na(domains)] = "out"
 

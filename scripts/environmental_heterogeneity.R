@@ -1,8 +1,8 @@
 
 ## loading packages
-library(raster)
+library("raster")
 library(rasterdiv)
-library(sf)
+library("sf")
 
 #loading species occurrences
 spp_points=read.table("0_data/spp_points_7km.csv", header =T, sep=",")
@@ -21,8 +21,15 @@ ras_list = list(ras1,ras2,ras3,ras4)
 ############################# calculating Q for all environment variables #################################
 
 # calculate rao index
-rao_env = paRao(ras_list, dist_m="euclidean", window=3, rasterOut = T,
-          method="multidimension",alpha=1, rescale=T,  na.tolerance=0.5, simplify=2)
+rao_env = paRao(ras_list, 
+                dist_m="euclidean",
+                window=3, 
+                rasterOut = T,
+                method="multidimension",
+                alpha=1, 
+                rescale=T,  
+                na.tolerance=0.5, 
+                simplify=2)
 
 # taking only raster structure
 rao_env_raster = rao_env$window.3$alpha.1

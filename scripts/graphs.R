@@ -10,10 +10,6 @@ library(plyr)
 library(RColorBrewer)
 library(reshape2)
 
-# my colors
-mycols = c( "#1E88E5", "#FFC107", "#D81B60")
-
-############################ plotting extent species data #########################
 
 ### loading data
 spp_rao = read.table("2_environmental_heterogeneity/spp_rao.csv", 
@@ -24,9 +20,17 @@ spp_hvolumes = read.table("3_hypervolume_inference/spp_hvolumes.csv",
                           header =T, sep=",",  na.strings = "NA", fill=T)
 spp_range = read.table("4_range_inference/spp_range.csv", 
                        header =T, sep=",",  na.strings = "NA", fill=T)
-  
+
+# my colors
+mycols = c( "#1E88E5", "#FFC107", "#D81B60")
+
+############################ plotting extent species data #########################  
+
 # organizing dataset to plot
-spp_dataset = data.frame(spp_rao, spp_altitude$altitude, spp_hvolumes$hvolume, spp_range$range)
+spp_dataset = data.frame(spp_rao, 
+                         spp_altitude$altitude, 
+                         spp_hvolumes$hvolume, 
+                         spp_range$range)
 colnames(spp_dataset)[4:6] = c("altitude", "hvolume","range")
 
 tiff("6_graphs/qvalues_geographic_distribution.tiff", 
